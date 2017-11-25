@@ -1,0 +1,21 @@
+package problem
+
+import (
+	"testing"
+	"github.com/stretchr/testify/assert"
+)
+
+func TestHammingDistance(t *testing.T) {
+	tests := []struct {
+		x        int
+		y        int
+		expected int
+	}{
+		{1, 4, 2},
+	}
+
+	for _, test := range tests {
+		actual := hammingDistance(test.x, test.y)
+		assert.Equal(t, test.expected, actual, "x=%d y=%d", test.x, test.y)
+	}
+}
