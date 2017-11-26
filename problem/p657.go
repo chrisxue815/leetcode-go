@@ -1,5 +1,6 @@
 package problem
 
+// O(n) time. O(1) space. Iteration.
 func judgeCircle(moves string) bool {
 	x, y := 0, 0
 
