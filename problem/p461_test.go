@@ -16,6 +16,6 @@ func TestHammingDistance(t *testing.T) {
 
 	for _, test := range tests {
 		actual := hammingDistance(test.x, test.y)
-		assert.Equal(t, test.expected, actual, "x=%d y=%d", test.x, test.y)
+		assert.Equal(t, test.expected, actual, "%+v", test)
 	}
 }

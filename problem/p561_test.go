@@ -5,17 +5,17 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestJudgeCircle(t *testing.T) {
+func TestArrayPairSum(t *testing.T) {
 	tests := []struct {
-		moves    string
-		expected bool
+		nums     []int
+		expected int
 	}{
-		{"UD", true},
-		{"LL", false},
+		{[]int{1, 2}, 1},
+		{[]int{1, 4, 3, 2}, 4},
 	}
 
 	for _, test := range tests {
-		actual := judgeCircle(test.moves)
+		actual := arrayPairSum(test.nums)
 		assert.Equal(t, test.expected, actual, "%+v", test)
 	}
 }

@@ -20,6 +20,6 @@ func TestMergeTrees(t *testing.T) {
 	for _, test := range tests {
 		actualTree := mergeTrees(Deserialize(test.t1), Deserialize(test.t2))
 		actual := actualTree.Serialize()
-		assert.Equal(t, test.expected, actual, "t1=%s t2=%s", test.t1, test.t2)
+		assert.Equal(t, test.expected, actual, "%+v", test)
 	}
 }
