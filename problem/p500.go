@@ -1,55 +1,28 @@
 package problem
 
-var keyToRow = map[byte]int{
-	'Q': 1,
-	'W': 1,
-	'E': 1,
-	'R': 1,
-	'T': 1,
-	'Y': 1,
-	'U': 1,
-	'I': 1,
-	'O': 1,
-	'P': 1,
-	'A': 2,
-	'S': 2,
-	'D': 2,
-	'F': 2,
-	'G': 2,
-	'H': 2,
-	'J': 2,
-	'K': 2,
-	'L': 2,
-	'Z': 3,
-	'X': 3,
-	'C': 3,
-	'V': 3,
-	'B': 3,
-	'N': 3,
-	'M': 3,
-}
+var keyToRow = []int{3, 4, 4, 3, 2, 3, 3, 3, 2, 3, 3, 3, 4, 4, 2, 2, 2, 2, 3, 2, 2, 4, 2, 4, 2, 4}
 
-func toUpper(b byte) byte {
+func getRow(b byte) int {
 	if b >= 'a' {
-		return b - 'a' + 'A'
+		return keyToRow[b-'a']
 	}
-	return b
+	return keyToRow[b-'A']
 }
 
-// O(n) time. O(1) space. Hash table.
+// O(n) time. O(1) space. Array.
 func findWords(words []string) []string {
-	result := make([]string, 0)
+	result := make([]string, 0, len(words))
 
 	for _, word := range words {
 		if len(word) == 0 {
 			continue
 		}
 
-		row := keyToRow[toUpper(word[0])]
+		row := getRow(word[0])
 		valid := true
 
 		for i := 1; i < len(word); i++ {
-			if keyToRow[toUpper(word[i])] != row {
+			if getRow(word[i]) != row {
 				valid = false
 				break
 			}
