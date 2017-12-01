@@ -4,7 +4,7 @@ import (
 	. "leetcode-go/util"
 )
 
-// O(n) time. O(log(n)) space. Recursive pre-order traversal.
+// O(n) time. O(log(n)) space. Recursive DFS.
 func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
 	if t1 == nil {
 		return t2
