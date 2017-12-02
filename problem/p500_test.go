@@ -5,7 +5,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFindWords(t *testing.T) {
+func Test_findWords(t *testing.T) {
 	tests := []struct {
 		words    []string
 		expected []string

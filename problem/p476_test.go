@@ -5,7 +5,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFindComplement(t *testing.T) {
+func Test_findComplement(t *testing.T) {
 	tests := []struct {
 		num      int
 		expected int

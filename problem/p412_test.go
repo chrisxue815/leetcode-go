@@ -5,7 +5,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFizzBuzz(t *testing.T) {
+func Test_fizzBuzz(t *testing.T) {
 	tests := []struct {
 		n        int
 		expected []string

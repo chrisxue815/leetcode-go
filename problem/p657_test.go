@@ -5,7 +5,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestJudgeCircle(t *testing.T) {
+func Test_judgeCircle(t *testing.T) {
 	tests := []struct {
 		moves    string
 		expected bool

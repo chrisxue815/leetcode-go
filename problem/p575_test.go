@@ -5,7 +5,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestDistributeCandies(t *testing.T) {
+func Test_distributeCandies(t *testing.T) {
 	tests := []struct {
 		candies  []int
 		expected int

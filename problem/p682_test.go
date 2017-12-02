@@ -5,7 +5,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCalPoints(t *testing.T) {
+func Test_calPoints(t *testing.T) {
 	tests := []struct {
 		ops      []string
 		expected int

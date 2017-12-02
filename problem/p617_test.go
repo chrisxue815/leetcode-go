@@ -6,7 +6,7 @@ import (
 	. "leetcode-go/util"
 )
 
-func TestMergeTrees(t *testing.T) {
+func Test_mergeTrees(t *testing.T) {
 	tests := []struct {
 		t1       string
 		t2       string

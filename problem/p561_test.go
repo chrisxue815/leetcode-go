@@ -5,7 +5,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestArrayPairSum(t *testing.T) {
+func Test_arrayPairSum(t *testing.T) {
 	tests := []struct {
 		nums     []int
 		expected int

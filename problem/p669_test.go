@@ -6,7 +6,7 @@ import (
 	. "leetcode-go/util"
 )
 
-func TestTrimBST(t *testing.T) {
+func Test_trimBST(t *testing.T) {
 	tests := []struct {
 		root     string
 		l        int

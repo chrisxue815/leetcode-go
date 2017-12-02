@@ -5,7 +5,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestHammingDistance(t *testing.T) {
+func Test_hammingDistance(t *testing.T) {
 	tests := []struct {
 		x        int
 		y        int
