@@ -4,14 +4,13 @@ import (
 	. "leetcode-go/util"
 )
 
-const initialCapacity = 16
-
 // O(n) time. O(n) space. BFS.
 func averageOfLevels(root *TreeNode) []float64 {
 	if root == nil {
 		return []float64{}
 	}
 
+	const initialCapacity = 16
 	result := make([]float64, 0, initialCapacity)
 	queue := make([]*TreeNode, 0, initialCapacity)
 	queue = append(queue, root)
