@@ -4,7 +4,7 @@ import (
 	. "leetcode-go/util"
 )
 
-// O(n) time. O(log(n)) space. Recursive DFS.
+// O(n) time. O(log(n)) space. Recursive post-order traversal.
 func trimBST(root *TreeNode, l int, r int) *TreeNode {
 	if root == nil {
 		return nil

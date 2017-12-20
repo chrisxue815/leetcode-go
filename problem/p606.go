@@ -28,7 +28,7 @@ func tree2strDFS(root *TreeNode, result []byte) []byte {
 	return result
 }
 
-// O(n) time. O(log(n)) space. Recursive DFS.
+// O(n) time. O(log(n)) space. Recursive pre-order traversal.
 func tree2str(root *TreeNode) string {
 	if root == nil {
 		return ""

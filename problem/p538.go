@@ -17,6 +17,7 @@ func convertBSTInorder(root *TreeNode, sum *int) {
 	convertBSTInorder(root.Left, sum)
 }
 
+// O(n) time. O(log(n)) space. In-order traversal.
 func convertBST(root *TreeNode) *TreeNode {
 	sum := 0
 	convertBSTInorder(root, &sum)
