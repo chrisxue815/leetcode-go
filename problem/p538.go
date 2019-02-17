@@ -1,7 +1,7 @@
 package problem
 
 import (
-	. "leetcode-go/util"
+	. "github.com/chrisxue815/leetcodego/util"
 )
 
 func convertBSTInorder(root *TreeNode, sum *int) {

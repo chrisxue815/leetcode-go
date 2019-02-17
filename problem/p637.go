@@ -1,7 +1,7 @@
 package problem
 
 import (
-	. "leetcode-go/util"
+	. "github.com/chrisxue815/leetcodego/util"
 )
 
 // O(n) time. O(n) space. BFS.
