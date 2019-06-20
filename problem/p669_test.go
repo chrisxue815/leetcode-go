@@ -3,7 +3,7 @@ package problem
 import (
 	"testing"
 	"github.com/stretchr/testify/assert"
-	. "github.com/chrisxue815/leetcodego/util"
+	. "github.com/chrisxue815/leetcode-go/util"
 )
 
 func Test_trimBST(t *testing.T) {

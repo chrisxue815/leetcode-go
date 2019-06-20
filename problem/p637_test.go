@@ -2,7 +2,7 @@ package problem
 
 import (
 	"github.com/stretchr/testify/assert"
-	. "github.com/chrisxue815/leetcodego/util"
+	. "github.com/chrisxue815/leetcode-go/util"
 	"testing"
 )
 

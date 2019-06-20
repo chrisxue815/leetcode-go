@@ -1,7 +1,7 @@
 package problem
 
 import (
-	. "github.com/chrisxue815/leetcodego/util"
+	. "github.com/chrisxue815/leetcode-go/util"
 )
 
 // O(n) time. O(log(n)) space. Recursive post-order traversal.

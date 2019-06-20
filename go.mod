@@ -1,4 +1,4 @@
-module github.com/chrisxue815/leetcodego
+module github.com/chrisxue815/leetcode-go
 
 go 1.12
 
