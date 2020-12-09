@@ -1,20 +1,21 @@
 package problem
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
-func Test_singleNumber(t *testing.T) {
+func Test_countBinarySubstrings(t *testing.T) {
 	tests := []struct {
-		n        []int
+		s        string
 		expected int
 	}{
-		{[]int{1, 2, 1}, 2},
+		{"00110011", 6},
+		{"10101", 4},
 	}
 
 	for _, test := range tests {
-		actual := singleNumber(test.n)
+		actual := countBinarySubstrings(test.s)
 		assert.Equal(t, test.expected, actual, "%+v", test)
 	}
 }

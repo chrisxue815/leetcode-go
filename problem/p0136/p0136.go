@@ -1,4 +1,4 @@
-package problem
+package test_0136
 
 // O(n) time. O(1) space. Bit manipulation.
 func singleNumber(nums []int) int {
