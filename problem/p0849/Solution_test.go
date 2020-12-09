@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// O(n) time. O(1) space. Iteration.
 func maxDistToClosest(seats []int) int {
 	lo := 0
 
