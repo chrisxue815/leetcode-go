@@ -2,6 +2,9 @@ package problem
 
 import (
 	. "github.com/chrisxue815/leetcode-go/util"
+	"github.com/stretchr/testify/assert"
+	"gopkg.in/guregu/null.v4"
+	"testing"
 )
 
 // O(n) time. O(n) space. BFS.
@@ -37,4 +40,28 @@ func averageOfLevels(root *TreeNode) []float64 {
 	}
 
 	return result
+}
+
+func Test_solution(t *testing.T) {
+	type Args struct {
+		Root []null.Int `json:"root"`
+	}
+
+	type TestCase struct {
+		Args     Args      `json:"args"`
+		Expected []float64 `json:"expected"`
+	}
+
+	type TestJson struct {
+		TestCases []TestCase `json:"test_cases"`
+	}
+
+	testJson := TestJson{}
+	LoadTestJson(&testJson)
+
+	for _, test := range testJson.TestCases {
+		root := Deserialize(test.Args.Root)
+		actual := averageOfLevels(root)
+		assert.Equal(t, test.Expected, actual, "%+v", test)
+	}
 }

@@ -1,10 +1,8 @@
 package util
 
 import (
-	"strconv"
+	"gopkg.in/guregu/null.v4"
 )
-
-const initialCapacity = 16
 
 type TreeNode struct {
 	Val   int
@@ -12,20 +10,13 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func (t *TreeNode) Serialize() string {
-	buf := make([]byte, 0, initialCapacity)
-	t.SerializeToBuffer(&buf)
-	return string(buf)
-}
-
-func (t *TreeNode) SerializeToBuffer(buffer *[]byte) {
+func (t *TreeNode) Serialize() []null.Int {
+	result := make([]null.Int, 0)
 	if t == nil {
-		return
+		return result
 	}
 
-	buf := *buffer
-
-	queue := make([]*TreeNode, 0, initialCapacity)
+	queue := make([]*TreeNode, 0)
 	queue = append(queue, t)
 
 	for len(queue) > 0 {
@@ -33,65 +24,50 @@ func (t *TreeNode) SerializeToBuffer(buffer *[]byte) {
 		queue = queue[1:]
 
 		if node == nil {
-			buf = append(buf, "#,"...)
+			result = append(result, null.NewInt(0, false))
 		} else {
-			buf = strconv.AppendInt(buf, int64(node.Val), 10)
-			buf = append(buf, ',')
+			result = append(result, null.NewInt(int64(node.Val), true))
 
 			queue = append(queue, node.Left)
 			queue = append(queue, node.Right)
 		}
 	}
 
-	end := len(buf) - 1
-	for ; end >= 0; end-- {
-		last := buf[end]
-		if last != '#' && last != ',' {
+	for i := len(result) - 1; i >= 0; i-- {
+		if result[i].Valid {
 			break
 		}
+		result = result[:len(result)-1]
 	}
 
-	*buffer = buf[:end+1]
+	return result
 }
 
-func Deserialize(values string) *TreeNode {
+func Deserialize(values []null.Int) *TreeNode {
 	if len(values) == 0 {
 		return nil
 	}
 
-	dummy := &TreeNode{}
-	queue := make([]**TreeNode, 0, initialCapacity)
-	queue = append(queue, &dummy)
-	val := 0
+	var root *TreeNode = nil
+	queue := make([]**TreeNode, 0)
+	queue = append(queue, &root)
 
 	for i := 0; i < len(values); i++ {
-		ch := values[i]
+		value := values[i]
 
-		switch ch {
-		case ',':
+		if value.Valid {
 			node := &TreeNode{
-				Val: val,
+				Val: int(value.Int64),
 			}
 			*queue[0] = node
 			queue = queue[1:]
 
 			queue = append(queue, &node.Left)
 			queue = append(queue, &node.Right)
-
-			val = 0
-
-		case '#':
+		} else {
 			queue = queue[1:]
-			i++
-
-		default:
-			val = val*10 + int(ch) - '0'
 		}
 	}
 
-	*queue[0] = &TreeNode{
-		Val: val,
-	}
-
-	return dummy
+	return root
 }
